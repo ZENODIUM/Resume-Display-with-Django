@@ -24,8 +24,8 @@ Resume Viewer Screenshot
 ## 🚀 How to Run This Project
 
 ### 1️⃣ Clone the Repository
-git clone <repository-url>
-cd <repository-folder>
+git clone [<repository-url>](https://github.com/ZENODIUM/Resume-Display-with-Django)
+cd repository-folder
 
 ### 2️⃣ Set Up the Environment
 python -m venv env
