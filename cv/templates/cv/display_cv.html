@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ resume.name }}'s CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fffaf0;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff6600;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #ff6600;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        pre {
+            background-color: #fff5e6;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        a {
+            color: #ff6600;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .experience-item {
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #fff5e6;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .experience-item h3 {
+        margin-bottom: 5px;
+        font-size: 1.5rem;
+        color: #ff6600;
+    }
+
+    .experience-item p {
+        margin: 5px 0;
+        line-height: 1.6;
+    }
+
+    .experience-item p strong {
+        color: #333;
+    }
+
+        section:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ resume.name }}</h1>
+    </header>
+
+    <section class="animate__animated animate__lightSpeedInRight">
+        <h2>Resume File</h2>
+        <iframe src="https://docs.google.com/document/d/1byhPd8Tpov335E9Z0uRFPIDRmgMQyR6y/edit?usp=sharing&ouid=103089367227451043967&rtpof=true&sd=true&embedded=true" width="100%" height="600px"></iframe>
+    </section>
+    
+    <section class="animate__animated animate__fadeInDown">
+        <h2>Contact Information</h2>
+        <p>Email: {{ resume.email }}</p>
+        <p>Phone: {{ resume.phone }}</p>
+        <p>LinkedIn: <a href="{{ resume.linkedin }}" target="_blank">{{ resume.linkedin }}</a></p>
+        <p>GitHub: <a href="{{ resume.github }}" target="_blank">{{ resume.github }}</a></p>
+        <p>Kaggle: <a href="{{ resume.kaggle }}" target="_blank">{{ resume.kaggle }}</a></p>
+    </section>
+
+    <section class="animate__animated animate__fadeInLeft">
+        <h2>Education</h2>
+        <pre>{{ resume.education }}</pre>
+    </section>
+
+    <section id="experience" class="animate__animated animate__fadeInRight">
+        <h2>Experience</h2>
+        {% for item in experience_list %}
+        <div class="experience-item">
+            <pre>{{ item }}</pre>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section class="animate__animated animate__fadeInUp">
+        <h2>Projects</h2>
+        <pre>{{ resume.projects }}</pre>
+    </section>
+
+    <section class="animate__animated animate__zoomIn">
+        <h2>Skills</h2>
+        <pre>{{ resume.skills }}</pre>
+    </section>
+
+    <section class="animate__animated animate__flipInX">
+        <h2>Competitions</h2>
+        <pre>{{ resume.competitions }}</pre>
+    </section>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          anime({
+              targets: '#experience .experience-item',
+              translateX: [-100, 0],
+              opacity: [0, 1],
+              delay: anime.stagger(200),
+              easing: 'easeOutExpo'
+          });
+      });
+    </script>
+</body>
+</html>
