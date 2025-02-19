@@ -24,13 +24,13 @@ Resume Viewer Screenshot
 ## 🚀 How to Run This Project
 
 ### 1️⃣ Clone the Repository
-git clone https://github.com/ZENODIUM/Resume-Display-with-Django
-cd repository-folder
+- git clone https://github.com/ZENODIUM/Resume-Display-with-Django
+- cd repository-folder
 
 ### 2️⃣ Set Up the Environment
-python -m venv env
-source env/bin/activate # On Windows: env\Scripts\activate
-pip install -r requirements.txt
+- python -m venv env
+- source env/bin/activate # On Windows: env\Scripts\activate
+- pip install django
 
 
 ### 3️⃣ Apply Migrations
@@ -72,19 +72,19 @@ You can add or edit resume data (e.g., name, email, education, experience) and u
 The data is stored using Django models defined in `models.py`:
 from django.db import models
 
-class Resume(models.Model):
-name = models.CharField(max_length=100)
-email = models.EmailField()
-phone = models.CharField(max_length=15)
-linkedin = models.URLField()
-github = models.URLField()
-kaggle = models.URLField()
-education = models.TextField()
-experience = models.TextField()
-projects = models.TextField()
-skills = models.TextField()
-competitions = models.TextField()
-resume_file = models.FileField(upload_to='resumes/') or Share the google docs link directly in the template html file
+- class Resume(models.Model):
+- name = models.CharField(max_length=100)
+- email = models.EmailField()
+- phone = models.CharField(max_length=15)
+- linkedin = models.URLField()
+- github = models.URLField()
+- kaggle = models.URLField()
+- education = models.TextField()
+- experience = models.TextField()
+- projects = models.TextField()
+- skills = models.TextField()
+- competitions = models.TextField()
+- resume_file = models.FileField(upload_to='resumes/') or Share the google docs link directly in the template html file
 
 
 
